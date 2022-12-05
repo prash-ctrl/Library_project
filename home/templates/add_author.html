@@ -1,0 +1,19 @@
+{% extends 'nav.html' %}
+
+{% block content %}
+{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card-body">
+            <form action="#" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-success">Add Author</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% else %}
+<h3>Sorry Only Admin can add author!</h3>
+{% endif %}
+{% endblock %}

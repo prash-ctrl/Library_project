@@ -1,0 +1,36 @@
+{% include 'nav.html' %}
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Pages</th>
+            <th>Price</th>
+            <th>Author</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for b in books %}
+        <tr>
+            <td>{{b.name}}</td>
+            <td>{{b.pages}}</td>
+            <td>{{b.price}}</td>
+            <td>{{b.author}}</td>
+            <td>
+                <a href="{% url 'edit-books' b.id %}">
+                    <button class="btn btn-warning">Edit</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'delete-books' b.id %}">
+                    <button class="btn btn-warning">Delete</button>
+                </a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

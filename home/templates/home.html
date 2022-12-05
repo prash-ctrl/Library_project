@@ -1,0 +1,26 @@
+{% extends 'nav.html' %}
+
+{% load static %}
+
+{% block content %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+<div class="container">
+    <h3 class="row justify-content-center"> WELCOME to XDEZO Library</h3>
+</div>
+<br><br>
+<div class ="button next row justify-content-center " style="margin-top: 60px;">
+    <a href="{% url 'add_author' %}">Add Author</a>
+    <a href="{% url 'add_book' %}" class="dist">Add Books</a>
+</div>
+<div class="container">
+    <div class="row mt-4">
+      <div class="col-md-10 offset-md-1">
+        {{ m|safe }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
